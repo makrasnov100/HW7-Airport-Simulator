@@ -63,7 +63,6 @@ public:
 	{
 		std::cout << "Welcome CS273 to the Simple Airport Simulator.\n\n";
 		std::cout << "We are CS273ville, a small but feisty airport!\n";
-		std::cout << "Remember to re-read section 6.5 of the text book\n\n";
 
 		int rate = read_int("Please enter the plane arrival rate (planes/hour): ", 1, 59);
 		double arrival_rate = rate / 60.0;
@@ -71,11 +70,12 @@ public:
 		int min_service = read_int("Please enter the minimum service time (mins): ", 0, INT_MAX);
 		int max_service = read_int("Please enter the maximum service time (mins): ", 0, INT_MAX);
 		int departure_time = read_int("Please enter the departure time (mins): ", 1, INT_MAX);
+		int gates_amount = read_int("Please enter the amount of gates at your airport: ", 1, INT_MAX);
 
-		total_time = read_int("Please enter the simulation time (hours): ", 1, INT_MAX);
+		total_time = read_int("Please enter the total simulation time (hours): ", 1, INT_MAX);
 		total_time *= 60;
 
-		// set the arrival_rate for the landing queue
+		// set the arrival_rate for the landing queue (planes a minute)
 		landing_queue->set_arrival_rate(arrival_rate);
 
 		// set the service times for the service queue 
@@ -83,6 +83,9 @@ public:
 		// pass references to the landing and departure queue to the service queue
 		service_queue->set_landing_queue(landing_queue);
 		service_queue->set_departure_queue(departure_queue);
+
+		// set the amount of gastes at the airport
+		service_queue->set_gate_amount(gates_amount);
 
 		// set the departure time for the departure queue
 		departure_queue->set_departure_time(departure_time);
@@ -103,14 +106,21 @@ public:
 	//Shows the results of the simulation
 	void show_stats()
 	{
-		std::cout << "Number of planes served in the landing queue: " << landing_queue->get_num_served() << " planes" << std::endl;
-		std::cout << "Total wait time for all planes in landing queue: " << landing_queue->get_total_wait() << " minutes" << std::endl;
-		std::cout << "Average wait time for landing queue: " << landing_queue->get_num_served() / landing_queue->get_num_served() << " minutes" << std::endl;
+		std::cout << "[LANDINGS]" << std::endl;
+		std::cout << "Number of planes served in the landing queue: " << landing_queue->get_num_served() << " plane(s)" << std::endl;
+		std::cout << "Total wait time for all planes in landing queue: " << landing_queue->get_total_wait() << " minute(s)" << std::endl;
+		std::cout << "Average wait time for landing queue: " << landing_queue->get_total_wait() / landing_queue->get_num_served() << " minute(s)" << std::endl;
 		std::cout << std::endl;
 
-		std::cout << "Number of planes served in the departure queue: " << departure_queue->get_num_served() << std::endl;
-		std::cout << "Total wait time for all planes in departure queue: " << departure_queue->get_total_wait() << std::endl;
-		std::cout << "Average wait time for departure queue: " << departure_queue->get_total_wait() / departure_queue->get_num_served() << " minutes" << std::endl;
+		std::cout << "[DEPARTURES]" << std::endl;
+		std::cout << "Number of planes served in the departure queue: " << departure_queue->get_num_served() << " plane(s)" << std::endl;
+		std::cout << "Total wait time for all planes in departure queue: " << departure_queue->get_total_wait() << " minute(s)"<< std::endl;
+		std::cout << "Average wait time for departure queue: " << departure_queue->get_total_wait() / departure_queue->get_num_served() << " minute(s)" << std::endl;
+		std::cout << std::endl;
+
+		std::cout << "[OTHER]" << std::endl;
+		std::cout << landing_queue->getQueueSize() << " plane(s) are still circling the airport waiting to land..." << std::endl;
+		std::cout << departure_queue->getQueueSize() << " plane(s) are at the airport waiting to liftoff..." << std::endl;
 		std::cout << std::endl;
 	}
 

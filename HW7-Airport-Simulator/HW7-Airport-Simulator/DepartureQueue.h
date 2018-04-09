@@ -32,30 +32,33 @@ public:
 		// are there planes waiting in the departure queue?
 		if (!the_queue.empty()) {
 			Plane *plane = the_queue.front();
-			if (plane->ready_takeoff_time == -1) { // new plane has arrived at the front
-												   // update the ready_takeoff_time attribute of the plane
+			if (plane->ready_takeoff_time == -1) { // new plane has arrived at the front of depart queue
+			    // update the ready_takeoff_time attribute of the plane
 				plane->ready_takeoff_time = clock;
 			}
 			else {
 				// compute the time the plane has been waiting at the front
 				if (clock - plane->ready_takeoff_time > departure_time) {
 					// plane has waited long enough
-					// FIXME: remove plane from departure queue
+					// remove plane from departure queue
+					the_queue.pop();
 
+					// calculate the wait time
+					int waitTime = clock - plane->enter_departure_time;
 
-					// FIXME: calculate the wait time
+					// update total_wait and num_served
+					total_wait += waitTime;
+					num_served++;
 
-
-					// FIXME: update total_wait and num_served
-
-
-
-					// take off!   goodbye plane
+					// Take off! Delete plane from system
 					delete plane;
 				}
 			}
 		}
+	}
 
+	int getQueueSize() {
+		return the_queue.size();
 	}
 
 	friend class ServiceQueue;
