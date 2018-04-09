@@ -97,7 +97,7 @@ public:
 			Plane *plane = the_queues[occupiedGates[i]]->front();
 
 			// check if a plane is ready to move from the service queue to the departure queue
-			if ((clock - plane->start_service_time) > plane->service_time) {
+			if ((clock - plane->start_service_time) >= plane->service_time) {
 				// remove plane from the service queue
 				the_queues[occupiedGates[i]]->pop();
 
