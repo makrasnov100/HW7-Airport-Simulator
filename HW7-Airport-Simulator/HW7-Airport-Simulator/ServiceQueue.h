@@ -43,6 +43,16 @@ public:
 		}
 	}
 
+	//Get Amount of planes still being serviced at current time
+	int getGateStatus() {
+		int occupiedGateAmount = 0;
+		for (int i = 0; i < the_queues.size(); i++)
+			if (!the_queues[i]->empty())
+				occupiedGateAmount++;
+
+		return occupiedGateAmount;
+	}
+
 	void update(int clock)
 	{
 		// find each gate state
@@ -96,35 +106,6 @@ public:
 				departure_queue->the_queue.push(plane);
 			}
 		}
-
-		//// there is a plane at the gate
-		//if (!the_queue.empty()) {
-
-
-		//} else { // the gate is empty - ready to serve!
-		//	// move a plane from the landing queue to the service queue
-		//	if (!landing_queue->the_queue.empty()) {
-
-		//		Plane *plane = landing_queue->the_queue.front();
-		//		landing_queue->the_queue.pop();
-
-		//		// calculate the wait time of the plane in the landing queue
-		//		int waitTime = clock - plane->arrival_time;
-
-		//		// update total_wait and num_served for the landing queue
-		//		landing_queue->total_wait += waitTime;
-		//		landing_queue->num_served++;
-
-		//		// FIXME: update the start_service_time attribute for the plane
-		//		plane->start_service_time = clock;
-
-		//		// compute a random service time (min) for the plane between min_service_time and max_service_time
-		//		plane->service_time = min_service_time + my_random.next_int(max_service_time - min_service_time);
-
-		//		// add the plane to the service queue
-		//		the_queue.push(plane);
-		//	}
-		//}
 	}
 
 };

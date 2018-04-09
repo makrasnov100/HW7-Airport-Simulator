@@ -1,5 +1,6 @@
 ﻿  main.cpp
-l:\whitworth\spring 2018\cs-273 data structures\homework\airportsimulation\hw7-airport-simulator\hw7-airport-simulator\hw7-airport-simulator\servicequeue.h(51): warning C4018: '<': signed/unsigned mismatch
-l:\whitworth\spring 2018\cs-273 data structures\homework\airportsimulation\hw7-airport-simulator\hw7-airport-simulator\hw7-airport-simulator\servicequeue.h(60): warning C4018: '<': signed/unsigned mismatch
-l:\whitworth\spring 2018\cs-273 data structures\homework\airportsimulation\hw7-airport-simulator\hw7-airport-simulator\hw7-airport-simulator\servicequeue.h(86): warning C4018: '<': signed/unsigned mismatch
+l:\whitworth\spring 2018\cs-273 data structures\homework\airportsimulation\hw7-airport-simulator\hw7-airport-simulator\hw7-airport-simulator\servicequeue.h(49): warning C4018: '<': signed/unsigned mismatch
+l:\whitworth\spring 2018\cs-273 data structures\homework\airportsimulation\hw7-airport-simulator\hw7-airport-simulator\hw7-airport-simulator\servicequeue.h(61): warning C4018: '<': signed/unsigned mismatch
+l:\whitworth\spring 2018\cs-273 data structures\homework\airportsimulation\hw7-airport-simulator\hw7-airport-simulator\hw7-airport-simulator\servicequeue.h(70): warning C4018: '<': signed/unsigned mismatch
+l:\whitworth\spring 2018\cs-273 data structures\homework\airportsimulation\hw7-airport-simulator\hw7-airport-simulator\hw7-airport-simulator\servicequeue.h(96): warning C4018: '<': signed/unsigned mismatch
   HW7-Airport-Simulator.vcxproj -> L:\Whitworth\Spring 2018\CS-273 Data Structures\Homework\AirportSimulation\HW7-Airport-Simulator\HW7-Airport-Simulator\Debug\HW7-Airport-Simulator.exe

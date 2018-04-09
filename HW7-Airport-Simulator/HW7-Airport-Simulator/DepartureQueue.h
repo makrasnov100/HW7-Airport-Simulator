@@ -4,6 +4,7 @@
 
 #include <queue>
 #include "Plane.h"
+#include <iostream>
 
 class DepartureQueue
 {
@@ -38,8 +39,7 @@ public:
 			}
 			else {
 				// compute the time the plane has been waiting at the front
-				if (clock - plane->ready_takeoff_time > departure_time) {
-					// plane has waited long enough
+				if (clock - plane->ready_takeoff_time >= departure_time) {
 					// remove plane from departure queue
 					the_queue.pop();
 

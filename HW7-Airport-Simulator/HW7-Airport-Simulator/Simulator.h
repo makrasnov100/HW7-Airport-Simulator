@@ -118,8 +118,9 @@ public:
 		std::cout << "Average wait time for departure queue: " << departure_queue->get_total_wait() / departure_queue->get_num_served() << " minute(s)" << std::endl;
 		std::cout << std::endl;
 
-		std::cout << "[OTHER]" << std::endl;
+		std::cout << "[END STATUS]" << std::endl;
 		std::cout << landing_queue->getQueueSize() << " plane(s) are still circling the airport waiting to land..." << std::endl;
+		std::cout << service_queue->getGateStatus() << " planes are still being serviced at the airport gates..." << std::endl;
 		std::cout << departure_queue->getQueueSize() << " plane(s) are at the airport waiting to liftoff..." << std::endl;
 		std::cout << std::endl;
 	}
