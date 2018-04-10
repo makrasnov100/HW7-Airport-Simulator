@@ -1,5 +1,4 @@
 #include "Simulator.h"
-
 Simulator airport;
 
 int main() {
@@ -8,7 +7,8 @@ int main() {
 	airport.run_simulation();
 	airport.show_stats();
 
-	system("pause"); //pauses execution to see results
+	//Note to run AND see result use (Ctrl + F5) (VS IDE) 
+	//or build and run .exe inside a command propmt
 
 	return 0;
 }
